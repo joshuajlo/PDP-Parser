@@ -10,7 +10,17 @@ insuring that you found the right sizes, when you could leave that to me to solv
 In any case, enjoy!
 
 ## How to use
-PASS IN YOUR TEXT IN JSON FORMAT TO EITHER OF THESE 3 METHODS:
+First install PDPParser using
+```
+pip install PDPParser
+````
+
+Then, import in PDPParser using
+```
+from PDPParser import Parse
+```
+To use the package,
+PASS IN YOUR TEXT TO EITHER OF THESE 3 METHODS:
 
   1. Sizes: Use this to return a list/array of product sizes and pids
 
@@ -23,9 +33,10 @@ PASS IN YOUR TEXT IN JSON FORMAT TO EITHER OF THESE 3 METHODS:
   3. Launch: Check if the product has launched, or is yet to launch
 
 
+EX:
 ```python
 import requests
-from PDP.pdpparser import Parse
+from PDPParser import Parse
 
 r = requests.get(f'https://footlocker.com/api/pdp/products/{sku}')
 
