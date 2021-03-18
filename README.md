@@ -31,6 +31,11 @@ PASS IN YOUR TEXT TO EITHER OF THESE 3 METHODS:
         - Price
 
   3. Launch: Check if the product has launched, or is yet to launch
+        - If this returns 0, the product has been launched
+        - Otherwise, it is the time left to launch in seconds
+
+
+AT ANY POINT, IF IT RETURNS ERROR, CHECK YOUR INPUTS!
 
 
 EX:
