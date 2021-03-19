@@ -158,7 +158,8 @@ class Parse():
             
             if len(availsizes) > 0:
                 size = random.choice(availsizes)
-                pid = random.choice(availids)
+                pidindex = availsizes.index(size)
+                pid = availids[pidindex]
             else:
                 size = 'oos'
                 pid = 'oos'
@@ -188,8 +189,6 @@ class Parse():
         except Exception as e:
             return 'error'
 
-
-
         passed_sizes = []
         passed_ids = []
         try:
@@ -202,8 +201,9 @@ class Parse():
                     if x.lower() == size.lower():
                         passed_sizes.append(x)
             
+            
             for x in passed_sizes:
-                sizeindex = passed_sizes.index(x)
+                sizeindex = availsizes.index(x)
                 passed_ids.append(availids[sizeindex])
             
             return {'size':passed_sizes, 'pid': passed_ids}
