@@ -1,3 +1,7 @@
+### 0.0.8:
+- Fixed Random_size returning random pid instead of indexed pid (lol)
+- Fixed index issue for Specific_size
+
 ### 0.0.7:
 - Hotfix for 0.0.6
 
