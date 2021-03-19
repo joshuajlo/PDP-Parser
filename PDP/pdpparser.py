@@ -198,9 +198,9 @@ class Parse():
             split_sizes = joined_sizes.split(",")
 
             for x in split_sizes:
-                joined_avail_sizes = ''.join(availsizes)
-                if x.lower() in joined_avail_sizes.lower():
-                    passed_sizes.append(x)
+                for size in availsizes:
+                    if x.lower() == size.lower():
+                        passed_sizes.append(x)
             
             for x in passed_sizes:
                 sizeindex = passed_sizes.index(x)
