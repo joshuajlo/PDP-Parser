@@ -49,9 +49,11 @@ sizes = Parse.sizes(r.text,sku)
 
 info = Parse.info(r.text,sku)
 
+atc_info = Parse.random_size(r.text, sku)
+
 launch_time = Parse.launch(r.text)
 ```
 
 
 
-## TODO: Add more information returned under INFO
+## TODO: Add more functions
