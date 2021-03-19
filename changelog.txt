@@ -1,0 +1,4 @@
+
+### 0.0.5 
+- Created changelog
+- Added new function: Random_size
