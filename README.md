@@ -35,6 +35,9 @@ PASS IN YOUR TEXT TO EITHER OF THESE 3 METHODS:
         - Otherwise, it is the time left to launch in seconds
 
   4. Random_Size: Will return a random size and pid, great for quick atc
+
+
+  5. Specific_size: When you pass in a list/array of user inputed sizes, it will match them with the available sizes, and return matching PIDS
  
 
 AT ANY POINT, IF IT RETURNS ERROR, CHECK YOUR INPUTS!
@@ -54,6 +57,9 @@ info = Parse.info(r.text,sku)
 random_size = Parse.random_size(r.text, sku)
 
 launch_time = Parse.launch(r.text)
+
+user_entries = ["10","10.5","11"]
+specific_sizes = Parse.specific_size(r.text,sku,user_entries)
 ```
 
 
