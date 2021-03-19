@@ -34,6 +34,8 @@ PASS IN YOUR TEXT TO EITHER OF THESE 3 METHODS:
         - If this returns 0, the product has been launched
         - Otherwise, it is the time left to launch in seconds
 
+  4. Random_Size: Will return a random size and pid, great for quick atc
+ 
 
 AT ANY POINT, IF IT RETURNS ERROR, CHECK YOUR INPUTS!
 
@@ -49,7 +51,7 @@ sizes = Parse.sizes(r.text,sku)
 
 info = Parse.info(r.text,sku)
 
-atc_info = Parse.random_size(r.text, sku)
+random_size = Parse.random_size(r.text, sku)
 
 launch_time = Parse.launch(r.text)
 ```
