@@ -165,3 +165,47 @@ class Parse():
             return {'size':size, 'pid': pid}
         except Exception as e:
             return 'error'
+
+    def specific_size(text,sku,user_entries):
+        try:
+            prod = json.loads(text)
+            for line in prod['variantAttributes']:
+                if sku == line['sku']:
+                    productcode = line['code']
+                    break
+
+            availsizes = [] 
+            availids = []
+            for line in prod['sellableUnits']:
+                if productcode == str(line['attributes'][1]['id']):
+                    if line['stockLevelStatus'] == 'inStock':
+                        try:
+                            availsizes.append(str(line['attributes'][0]['value']))
+                        except KeyError:
+                            availsizes.append('ONE SIZE')
+
+                        availids.append(str(line['attributes'][0]['id']))
+        except Exception as e:
+            return 'error'
+
+
+
+        passed_sizes = []
+        passed_ids = []
+        try:
+            joined_sizes = ','.join(user_entries)
+
+            split_sizes = joined_sizes.split(",")
+
+            for x in split_sizes:
+                joined_avail_sizes = ''.join(availsizes)
+                if x.lower() in joined_avail_sizes.lower():
+                    passed_sizes.append(x)
+            
+            for x in passed_sizes:
+                sizeindex = passed_sizes.index(x)
+                passed_ids.append(availids[sizeindex])
+            
+            return {'size':passed_sizes, 'pid': passed_ids}
+        except Exception as e:
+            return 'error'
