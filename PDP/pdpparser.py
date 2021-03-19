@@ -1,4 +1,4 @@
-import json, datetime, time
+import json, datetime, time, random
 from datetime import datetime
 
 
@@ -133,5 +133,35 @@ class Parse():
                     return 0
             else:
                 return 0
+        except Exception as e:
+            return 'error'
+
+    def random_size(text,sku):
+        try:
+            prod = json.loads(text)
+            for line in prod['variantAttributes']:
+                if sku == line['sku']:
+                    productcode = line['code']
+                    break
+
+            availsizes = [] 
+            availids = []
+            for line in prod['sellableUnits']:
+                if productcode == str(line['attributes'][1]['id']):
+                    if line['stockLevelStatus'] == 'inStock':
+                        try:
+                            availsizes.append(str(line['attributes'][0]['value']))
+                        except KeyError:
+                            availsizes.append('ONE SIZE')
+
+                        availids.append(str(line['attributes'][0]['id']))
+            
+            if len(availsizes) > 0:
+                size = random.choice(availsizes)
+                pid = random.choice(availids)
+            else:
+                size = 'oos'
+                pid = 'oos'
+            return {'size':size, 'pid': pid}
         except Exception as e:
             return 'error'
